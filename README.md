@@ -1,3 +1,5 @@
+[![validate](https://github.com/iganev/v20-openapi/actions/workflows/validate.yml/badge.svg)](https://github.com/iganev/v20-openapi/actions/workflows/validate.yml)
+
 # OANDA v20 API OpenAPI Specification
 
 Fork of the original [oanda repository](https://github.com/oanda/v20-openapi).
