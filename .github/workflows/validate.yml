@@ -1,0 +1,27 @@
+name: validate
+
+on: [push]
+
+jobs:
+  test_swagger_editor_validator_remote:
+    runs-on: ubuntu-latest
+    name: Swagger Editor Validator Remote
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate OpenAPI v2 JSON Definition
+        uses: char0n/swagger-editor-validate@v1
+        with:
+          definition-file: json/v20.json
+      - name: Validate OpenAPI v2 YAML Definition
+        uses: char0n/swagger-editor-validate@v1
+        with:
+          definition-file: yaml/v20.yaml
+      - name: Validate OpenAPI v3 JSON Definition
+        uses: char0n/swagger-editor-validate@v1
+        with:
+          definition-file: json/v20v3.json
+      - name: Validate OpenAPI v3 YAML Definition
+        uses: char0n/swagger-editor-validate@v1
+        with:
+          definition-file: yaml/v20v3.yaml
