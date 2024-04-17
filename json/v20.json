@@ -2590,7 +2590,7 @@
       "get": {
         "summary": "Get Candlesticks",
         "description": "Fetch candlestick data for an instrument.",
-        "operationId": "getInstrumentCandles",
+        "operationId": "getAccountInstrumentCandles",
         "parameters": [
           {
             "$ref": "#/parameters/authorizationHeaderParam"
