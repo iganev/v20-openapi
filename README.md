@@ -1,4 +1,4 @@
-# OANDAv20 API OpenAPI Specification
+# OANDA v20 API OpenAPI Specification
 
 Fork of the original [oanda repository](https://github.com/oanda/v20-openapi).
 
@@ -8,6 +8,8 @@ Goals of this repository:
 
 - [x] fix OpenAPI v2 schema to pass validation
 - [x] convert OpenAPI v2 schema to valid OpenAPI v3 schema
+- [x] fix OpenAPI v3 schema authentication mechanism
+- [x] add environments (fxPractice / fxTrade) to OpenAPI v3 schema
 - [ ] fish out inconsistencies, deprecations and downright wrong endpoints
 
 ## Disclaimers
