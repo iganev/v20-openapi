@@ -92,9 +92,6 @@
             "$ref": "v20_primitives.json#/parameters/acceptDatetimeFormatHeaderParam"
           },
           {
-            "$ref": "v20_instrument.json#/parameters/instrumentNamePathParam"
-          },
-          {
             "name": "from",
             "description": "The start of the time range to fetch prices for.",
             "in": "query",

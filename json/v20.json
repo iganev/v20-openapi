@@ -2359,9 +2359,6 @@
             "$ref": "#/parameters/acceptDatetimeFormatHeaderParam"
           },
           {
-            "$ref": "#/parameters/instrumentNamePathParam"
-          },
-          {
             "name": "from",
             "description": "The start of the time range to fetch prices for.",
             "in": "query",

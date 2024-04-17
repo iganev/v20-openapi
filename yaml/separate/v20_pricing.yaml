@@ -74,7 +74,6 @@ paths:
       parameters:
       - $ref: primitives.yaml#/parameters/authorizationHeaderParam
       - $ref: primitives.yaml#/parameters/acceptDatetimeFormatHeaderParam
-      - $ref: instrument.yaml#/parameters/instrumentNamePathParam
       - name: from
         description: The start of the time range to fetch prices for.
         in: query
