@@ -2174,6 +2174,7 @@ paths:
       parameters:
       - $ref: '#/parameters/authorizationHeaderParam'
       - $ref: '#/parameters/acceptDatetimeFormatHeaderParam'
+      - $ref: '#/parameters/accountIDPathParam'
       - $ref: '#/parameters/instrumentNamePathParam'
       - name: price
         description: >-

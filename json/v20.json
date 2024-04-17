@@ -2599,6 +2599,9 @@
             "$ref": "#/parameters/acceptDatetimeFormatHeaderParam"
           },
           {
+            "$ref": "#/parameters/accountIDPathParam"
+          },
+          {
             "$ref": "#/parameters/instrumentNamePathParam"
           },
           {
