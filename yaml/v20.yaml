@@ -15389,7 +15389,7 @@ parameters:
     name: mt4ServerID
     description: MT4 Server ID
     in: path
-    type: int
+    type: integer
     required: true
   orderSpecifierPathParam:
     name: orderSpecifier
