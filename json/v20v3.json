@@ -1891,6 +1891,144 @@
         }
       }
     },
+    "/accounts/{accountID}/candles/latest": {
+      "get": {
+        "summary": "Latest account candles",
+        "description": "Get dancing bears and most recently completed candles within an Account for specified combinations of instrument, granularity, and price component.",
+        "operationId": "getLatestCandles",
+        "parameters": [
+          { "$ref": "#/components/parameters/acceptDatetimeFormatHeaderParam" },
+          { "$ref": "#/components/parameters/accountIDPathParam" },
+          {
+            "name": "candleSpecifications",
+            "description": "List of candle specifications to get pricing for. A string containing the following, all delimited by \":\" characters: 1) InstrumentName 2) CandlestickGranularity 3) PricingComponent e.g. EUR_USD:S10:BM",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "A string containing the following, all delimited by \":\" characters: 1) InstrumentName 2) CandlestickGranularity 3) PricingComponent e.g. EUR_USD:S10:BM"
+              }
+            }
+          },
+          {
+            "name": "units",
+            "description": "The number of units used to calculate the volume-weighted average bid and ask prices in the returned candles.",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+            }
+          },
+          {
+            "name": "smooth",
+            "in": "query",
+            "description": "A flag that controls whether the candlestick is \"smoothed\" or not.  A smoothed candlestick uses the previous candle's close price as its open price, while an unsmoothed candlestick uses the first price from its time range as its open price.",
+            "schema": { "type": "boolean" }
+          },
+          {
+            "name": "dailyAlignment",
+            "in": "query",
+            "description": "The hour of the day (in the specified timezone) to use for granularities that have daily alignments.",
+            "schema": { "type": "integer" }
+          },
+          {
+            "name": "alignmentTimezone",
+            "in": "query",
+            "description": "The timezone to use for the dailyAlignment parameter. Candlesticks with daily alignment will be aligned to the dailyAlignment hour within the alignmentTimezone.  Note that the returned times will still be represented in UTC.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "weeklyAlignment",
+            "in": "query",
+            "description": "The day of the week used for granularities that have weekly alignment.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "units",
+            "in": "query",
+            "description": "The number of units used to calculate the volume-weighted average bid and ask prices in the returned candles.",
+            "schema": {
+              "type": "string",
+              "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pricing information has been successfully provided.",
+            "headers": {
+              "RequestID": {
+                "description": "The unique identifier generated for the request",
+                "schema": { "type": "string" }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "latestCandles": {
+                      "type": "array",
+                      "description": "The latest candle sticks.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "instrument": {
+                            "type": "string",
+                            "description": "The instrument whose Prices are represented by the candlesticks.",
+                            "format": "A string containing the base currency and quote currency delimited by a \"_\"."
+                          },
+                          "granularity": {
+                            "type": "string",
+                            "description": "The granularity of the candlesticks provided.",
+                            "enum": [
+                              "S5",
+                              "S10",
+                              "S15",
+                              "S30",
+                              "M1",
+                              "M2",
+                              "M4",
+                              "M5",
+                              "M10",
+                              "M15",
+                              "M30",
+                              "H1",
+                              "H2",
+                              "H3",
+                              "H4",
+                              "H6",
+                              "H8",
+                              "H12",
+                              "D",
+                              "W",
+                              "M"
+                            ]
+                          },
+                          "candles": {
+                            "type": "array",
+                            "description": "The list of candlesticks that satisfy the request.",
+                            "items": { "$ref": "#/components/schemas/Candlestick" }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/400" },
+          "401": { "$ref": "#/components/responses/401" },
+          "404": { "$ref": "#/components/responses/404" },
+          "405": { "$ref": "#/components/responses/405" }
+        }
+      }
+    },
     "/accounts/{accountID}/pricing": {
       "get": {
         "summary": "Current Account Prices",
