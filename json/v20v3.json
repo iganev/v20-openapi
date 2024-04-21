@@ -1916,8 +1916,8 @@
           },
           {
             "name": "units",
-            "description": "The number of units used to calculate the volume-weighted average bid and ask prices in the returned candles.",
             "in": "query",
+            "description": "The number of units used to calculate the volume-weighted average bid and ask prices in the returned candles.",
             "schema": {
               "type": "string",
               "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
@@ -1946,15 +1946,6 @@
             "in": "query",
             "description": "The day of the week used for granularities that have weekly alignment.",
             "schema": { "type": "string" }
-          },
-          {
-            "name": "units",
-            "in": "query",
-            "description": "The number of units used to calculate the volume-weighted average bid and ask prices in the returned candles.",
-            "schema": {
-              "type": "string",
-              "format": "A decimal number encoded as a string. The amount of precision provided depends on what the number represents."
-            }
           }
         ],
         "responses": {
