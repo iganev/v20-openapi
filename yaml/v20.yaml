@@ -163,6 +163,7 @@ paths:
     get:
       summary: Get Order Book
       description: Fetch an order book for an instrument.
+      operationId: getInstrumentOrderBook
       parameters:
       - $ref: '#/parameters/authorizationHeaderParam'
       - $ref: '#/parameters/acceptDatetimeFormatHeaderParam'
@@ -211,6 +212,7 @@ paths:
     get:
       summary: Get Position Book
       description: Fetch a position book for an instrument.
+      operationId: getInstrumentPositionBook
       parameters:
       - $ref: '#/parameters/authorizationHeaderParam'
       - $ref: '#/parameters/acceptDatetimeFormatHeaderParam'
@@ -11797,14 +11799,6 @@ definitions:
         - MARGIN_CHECK_VIOLATION
         - REGULATORY_MARGIN_CALL_VIOLATION
         - REGULATORY_MARGIN_CHECK_VIOLATION
-  MarketOrderMarginCloseoutReason:
-    type: string
-    description: >-
-      The reason that the Market Order was created to perform a margin closeout
-    enum:
-    - MARGIN_CHECK_VIOLATION
-    - REGULATORY_MARGIN_CALL_VIOLATION
-    - REGULATORY_MARGIN_CHECK_VIOLATION
   MarketOrderDelayedTradeClose:
     type: object
     description: >-
