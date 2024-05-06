@@ -39,7 +39,8 @@ paths:
       - name: granularity
         description: The granularity of the candlesticks to fetch
         in: query
-        type: string
+        schema:
+          $ref: '#/definitions/CandlestickGranularity'
       - name: count
         description: >-
           The number of candlesticks to return in the reponse. Count should
@@ -103,7 +104,8 @@ paths:
         description: >-
           The day of the week used for granularities that have weekly alignment.
         in: query
-        type: string
+        schema:
+          $ref: '#/definitions/WeeklyAlignment'
       responses:
         '200':
           description: Pricing information has been successfully provided.
@@ -122,30 +124,7 @@ paths:
                   A string containing the base currency and quote currency
                   delimited by a "_".
               granularity:
-                type: string
-                description: The granularity of the candlesticks provided.
-                enum:
-                - S5
-                - S10
-                - S15
-                - S30
-                - M1
-                - M2
-                - M4
-                - M5
-                - M10
-                - M15
-                - M30
-                - H1
-                - H2
-                - H3
-                - H4
-                - H6
-                - H8
-                - H12
-                - D
-                - W
-                - M
+                $ref: '#/definitions/CandlestickGranularity'
               candles:
                 type: array
                 description: The list of candlesticks that satisfy the request.
@@ -564,7 +543,8 @@ paths:
       - name: state
         description: The state to filter the requested Trades by.
         in: query
-        type: string
+        schema:
+          $ref: '#/definitions/TradeStateFilter'
       - name: instrument
         description: The instrument to filter the requested Trades by.
         in: query
@@ -1784,7 +1764,8 @@ paths:
         description: >-
           The day of the week used for granularities that have weekly alignment.
         in: query
-        type: string
+        schema:
+          $ref: '#/definitions/WeeklyAlignment'
       responses:
         '200':
           description: Pricing information has been successfully provided.
@@ -1809,30 +1790,7 @@ paths:
                         A string containing the base currency and quote currency
                         delimited by a "_".
                     granularity:
-                      type: string
-                      description: The granularity of the candlesticks provided.
-                      enum:
-                      - S5
-                      - S10
-                      - S15
-                      - S30
-                      - M1
-                      - M2
-                      - M4
-                      - M5
-                      - M10
-                      - M15
-                      - M30
-                      - H1
-                      - H2
-                      - H3
-                      - H4
-                      - H6
-                      - H8
-                      - H12
-                      - D
-                      - W
-                      - M
+                      $ref: '#/definitions/CandlestickGranularity'
                     candles:
                       type: array
                       description: The list of candlesticks that satisfy the request.
@@ -2099,7 +2057,8 @@ paths:
         description: >-
           The day of the week used for granularities that have weekly alignment.
         in: query
-        type: string
+        schema:
+          $ref: '#/definitions/WeeklyAlignment'
       - name: units
         description: >-
           The number of units used to calculate the volume-weighted average
@@ -2127,30 +2086,7 @@ paths:
                   A string containing the base currency and quote currency
                   delimited by a "_".
               granularity:
-                type: string
-                description: The granularity of the candlesticks provided.
-                enum:
-                - S5
-                - S10
-                - S15
-                - S30
-                - M1
-                - M2
-                - M4
-                - M5
-                - M10
-                - M15
-                - M30
-                - H1
-                - H2
-                - H3
-                - H4
-                - H6
-                - H8
-                - H12
-                - D
-                - W
-                - M
+                $ref: '#/definitions/CandlestickGranularity'
               candles:
                 type: array
                 description: The list of candlesticks that satisfy the request.
@@ -3309,12 +3245,7 @@ definitions:
           is a fractional number, where the fractional part represents a
           fraction of a second (up to nine decimal places).
       state:
-        type: string
-        description: The current state of the Trade.
-        enum:
-        - OPEN
-        - CLOSED
-        - CLOSE_WHEN_TRADEABLE
+        $ref: '#/definitions/TradeState'
       initialUnits:
         type: string
         description: >-
@@ -3439,12 +3370,7 @@ definitions:
           is a fractional number, where the fractional part represents a
           fraction of a second (up to nine decimal places).
       state:
-        type: string
-        description: The current state of the Trade.
-        enum:
-        - OPEN
-        - CLOSED
-        - CLOSE_WHEN_TRADEABLE
+        $ref: '#/definitions/TradeState'
       initialUnits:
         type: string
         description: >-
@@ -6260,10 +6186,7 @@ definitions:
         - REDUCE_ONLY
         - DEFAULT
       tradeState:
-        type: string
-        description: >-
-          The state that the trade resulting from the Fixed Price Order
-          should be set to.
+        $ref: '#/definitions/TradeState'
       reason:
         type: string
         description: The reason that the Fixed Price Order was created
@@ -12811,10 +12734,7 @@ definitions:
         - REDUCE_ONLY
         - DEFAULT
       tradeState:
-        type: string
-        description: >-
-          The state that the trade resulting from the Fixed Price Order
-          should be set to.
+        $ref: '#/definitions/TradeState'
       takeProfitOnFill:
         $ref: '#/definitions/TakeProfitDetails'
       stopLossOnFill:
