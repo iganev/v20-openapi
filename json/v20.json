@@ -47,7 +47,10 @@
             "type": "string"
           },
           {
-            "$ref": "#/definitions/CandlestickGranularity"
+            "name": "granularity",
+            "description": "The granularity of the candlesticks to fetch",
+            "in": "query",
+            "type": "string"
           },
           {
             "name": "count",
@@ -97,7 +100,7 @@
             "name": "weeklyAlignment",
             "description": "The day of the week used for granularities that have weekly alignment.",
             "in": "query",
-            "schema": { "$ref": "#/definitions/WeeklyAlignment" }
+            "type": "string"
           }
         ],
         "responses": {
@@ -118,7 +121,31 @@
                   "format": "A string containing the base currency and quote currency delimited by a \"_\"."
                 },
                 "granularity": {
-                  "$ref": "#/definitions/CandlestickGranularity"
+                  "type": "string",
+                  "description": "The granularity of the candlesticks provided.",
+                  "enum": [
+                    "S5",
+                    "S10",
+                    "S15",
+                    "S30",
+                    "M1",
+                    "M2",
+                    "M4",
+                    "M5",
+                    "M10",
+                    "M15",
+                    "M30",
+                    "H1",
+                    "H2",
+                    "H3",
+                    "H4",
+                    "H6",
+                    "H8",
+                    "H12",
+                    "D",
+                    "W",
+                    "M"
+                  ]
                 },
                 "candles": {
                   "type": "array",
@@ -634,7 +661,7 @@
             "name": "state",
             "description": "The state to filter the requested Trades by.",
             "in": "query",
-            "schema": { "$ref": "#/definitions/TradeStateFilter" }
+            "type": "string"
           },
           {
             "name": "instrument",
@@ -2106,7 +2133,7 @@
             "name": "weeklyAlignment",
             "description": "The day of the week used for granularities that have weekly alignment.",
             "in": "query",
-            "schema": { "$ref": "#/definitions/WeeklyAlignment" }
+            "type": "string"
           }
         ],
         "responses": {
@@ -2133,7 +2160,31 @@
                         "format": "A string containing the base currency and quote currency delimited by a \"_\"."
                       },
                       "granularity": {
-                        "$ref": "#/definitions/CandlestickGranularity"
+                        "type": "string",
+                        "description": "The granularity of the candlesticks provided.",
+                        "enum": [
+                          "S5",
+                          "S10",
+                          "S15",
+                          "S30",
+                          "M1",
+                          "M2",
+                          "M4",
+                          "M5",
+                          "M10",
+                          "M15",
+                          "M30",
+                          "H1",
+                          "H2",
+                          "H3",
+                          "H4",
+                          "H6",
+                          "H8",
+                          "H12",
+                          "D",
+                          "W",
+                          "M"
+                        ]
                       },
                       "candles": {
                         "type": "array",
@@ -2362,7 +2413,7 @@
             "name": "granularity",
             "description": "The granularity of the candlesticks to fetch",
             "in": "query",
-            "schema": { "$ref": "#/definitions/CandlestickGranularity" }
+            "type": "string"
           },
           {
             "name": "count",
@@ -2412,7 +2463,7 @@
             "name": "weeklyAlignment",
             "description": "The day of the week used for granularities that have weekly alignment.",
             "in": "query",
-            "schema": { "$ref": "#/definitions/WeeklyAlignment" }
+            "type": "string"
           },
           {
             "name": "units",
@@ -2440,7 +2491,31 @@
                   "format": "A string containing the base currency and quote currency delimited by a \"_\"."
                 },
                 "granularity": {
-                  "$ref": "#/definitions/CandlestickGranularity"
+                  "type": "string",
+                  "description": "The granularity of the candlesticks provided.",
+                  "enum": [
+                    "S5",
+                    "S10",
+                    "S15",
+                    "S30",
+                    "M1",
+                    "M2",
+                    "M4",
+                    "M5",
+                    "M10",
+                    "M15",
+                    "M30",
+                    "H1",
+                    "H2",
+                    "H3",
+                    "H4",
+                    "H6",
+                    "H8",
+                    "H12",
+                    "D",
+                    "W",
+                    "M"
+                  ]
                 },
                 "candles": {
                   "type": "array",
@@ -3619,7 +3694,13 @@
           "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
         },
         "state": {
-          "$ref": "#/definitions/TradeState"
+          "type": "string",
+          "description": "The current state of the Trade.",
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "CLOSE_WHEN_TRADEABLE"
+          ]
         },
         "initialUnits": {
           "type": "string",
@@ -3714,7 +3795,13 @@
           "format": "The RFC 3339 representation is a string conforming to https://tools.ietf.org/rfc/rfc3339.txt. The Unix representation is a string representing the number of seconds since the Unix Epoch (January 1st, 1970 at UTC). The value is a fractional number, where the fractional part represents a fraction of a second (up to nine decimal places)."
         },
         "state": {
-          "$ref": "#/definitions/TradeState"
+          "type": "string",
+          "description": "The current state of the Trade.",
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "CLOSE_WHEN_TRADEABLE"
+          ]
         },
         "initialUnits": {
           "type": "string",
@@ -6236,7 +6323,8 @@
           ]
         },
         "tradeState": {
-          "$ref": "#/definitions/TradeState"
+          "type": "string",
+          "description": "The state that the trade resulting from the Fixed Price Order should be set to."
         },
         "reason": {
           "type": "string",
@@ -11929,7 +12017,8 @@
           ]
         },
         "tradeState": {
-          "$ref": "#/definitions/TradeState"
+          "type": "string",
+          "description": "The state that the trade resulting from the Fixed Price Order should be set to."
         },
         "takeProfitOnFill": {
           "$ref": "#/definitions/TakeProfitDetails"
